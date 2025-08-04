@@ -36,22 +36,38 @@
 
 
 // Promises
+// console.log('before');
+
+// fetch("https://digimon-api.vercel.app/api/digimon")
+//     .then((result) => {
+//         //  console.log(result.json());
+//         return result.json();
+//     }).then((result2) => {
+//         // console.log(result2);
+//         // Extract only the names into a new array
+//         const names = result2.map(digimon => digimon.name);
+//         return names;
+//     }).then((digomonNames)=>{
+//         console.log(digomonNames);
+        
+//     }).catch(error=>{
+//         console.error('Error:', error);
+//     })
+
+// console.log('after');
+
+
+// async/await 
+
 console.log('before');
 
-fetch("https://digimon-api.vercel.app/api/digimon")
-    .then((result) => {
-        //  console.log(result.json());
-        return result.json();
-    }).then((result2) => {
-        // console.log(result2);
-        // Extract only the names into a new array
-        const names = result2.map(digimon => digimon.name);
-        return names;
-    }).then((digomonNames)=>{
-        console.log(digomonNames);
-        
-    }).catch(error=>{
-        console.error('Error:', error);
-    })
+async function fetchDigimon() {
+    const digimons = await fetch('https://digimon-api.vercel.app/api/digimon');
+    // console.log(digimons);
+    const alldigimons = await digimons.json();
+    console.log(alldigimons);
+    
+}
+fetchDigimon();
 
 console.log('after');
