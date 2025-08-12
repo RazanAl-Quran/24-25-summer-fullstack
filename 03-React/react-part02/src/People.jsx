@@ -20,12 +20,22 @@ const People = () => {
             username,
             height,
             favoritePet
-        }
+        };
+
+        console.log(newPerson);
+
 
         // push the new obj to the people array
         // setPeople(people.push(newPerson));
 
         setPeople([...people, newPerson]);
+
+        // console.log(people);
+
+        // Clear form
+        setUsername("");
+        setHeight("");
+        setFavoritePet("");
 
 
     }
@@ -64,6 +74,20 @@ const People = () => {
                     Add Person
                 </button>
             </form>
+
+            <ul style={{ marginTop: "20px", listStyle: "none", padding: 0 }}>
+                {people.map((person, index) => {
+                    return (
+                        <li  key={index}>
+                            {person.username} - {person.height} - {person.favoritePet}
+                        </li>
+                    )
+                })
+
+                }
+            </ul>
+
+
         </div>
     );
 }
